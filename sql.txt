@@ -1,0 +1,15 @@
+# PostgreSQL
+
+Get table names 
+`select tablename from pg_tables`
+
+Get columns of specific table
+```SQL
+select column_name from information_schema.columns where table_name = 'TABLE NAME HERE'
+```
+
+# MSSQL
+
+# MySQL
+
+# Oracle
