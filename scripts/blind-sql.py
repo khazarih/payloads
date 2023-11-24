@@ -21,6 +21,7 @@ def send_request(char):
     global retrieved
     global index
     global char_index
+    global is_sleep_required
 
     print("[*] Trying: ", char)
 
@@ -64,10 +65,10 @@ def send_multiple_request():
 while index <= password_length:
     send_multiple_request()
 
-    if is_sleep_required:
-        print(f"[!] Hit the max retries, trying again after {seconds} seconds")
-        sleep(seconds)
-        char_index -= threads_num
-        continue
+    # if is_sleep_required:
+    #     print(f"[!] Hit the max retries, trying again after {seconds} seconds")
+    #     sleep(seconds)
+    #     char_index -= threads_num
+    #     continue
 
 print("Retrieved: ", "".join(retrieved.values()))
