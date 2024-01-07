@@ -1,7 +1,8 @@
 # PostgreSQL
-
 Get table names 
-`select tablename from pg_tables`
+```SQL
+select tablename from pg_tables
+```
 
 Get columns of specific table
 ```SQL
@@ -13,7 +14,6 @@ select column_name from information_schema.columns where table_name = 'TABLE NAM
 # MySQL
 
 # Oracle
-
 Get table names 
 ```SQL
 select table_name from all_tables

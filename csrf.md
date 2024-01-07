@@ -135,6 +135,7 @@ Chaining with HTTP Header Injection attack
 </html>
 ```
 
+
 # CSRF with broken Referer validation
 Add header below to allow query parameters in referrer header
 ```

